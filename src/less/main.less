@@ -1,0 +1,229 @@
+@import 'media';
+@import 'normalize';
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header {
+    height: 10%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    
+    .header__top {
+        height: 60%;
+        width: 100%;
+        float: left; 
+        text-align: center;
+
+        .header__logo {
+            display: inline-block;
+            width: 30%;
+
+            .header__the-shop {
+                float: left;
+                width: 25%;
+            }
+
+            .header__oggetto {
+                width: 10%;
+            }
+        }
+
+        .header__phone {
+            width: 30%;
+            display: inline-block;
+
+            .header__number {
+                color: #C90A10;
+                margin: 0px; 
+                padding: 0px;
+                float: right;
+            }
+        }
+    }
+
+    .header__bottom {
+        background: #F1F2EC;
+        height: 40%;
+        width: 100%;
+        float: left; 
+        text-align: left;
+
+        .navigation {
+            display: inline-block;
+            float: left;
+
+            .navigation__item {
+                display: inline-block;
+
+                .navigation__link {
+                    color: #c40c00;
+                }
+            }        
+        }
+
+        .search {
+            display: inline-block;
+            float: right;
+        }
+    }
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+
+    .breadcrumbs-container {
+        height: 150px;
+        width: 100%;
+        text-align: left;
+
+        .breadcrumbs {
+            display: inline-block;
+
+            .breadcrumbs__list {
+
+                .breadcrumbs__item {
+                    display: inline-block;
+
+                    .breadcrumbs__link {
+                        color: #c40c00;
+                    }
+                }
+
+                .breadcrumbs__separator {
+                    display: inline-block;                    
+                }
+            }
+        }
+    }
+
+    .product {
+        height: 100%;
+        width: 100%;
+
+        .product__image-container {
+            float: left;
+            height: 50%;
+            width: 40%;
+
+            .product__image {
+                height: 100%;
+                width: 100%;
+                margin-left: 50px;
+            }
+        }
+
+        .product__details {
+            float: right;
+            height: 50%;
+            width: 50%;
+        }
+    }
+}
+
+.footer {
+    height: 30%;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    background: #F1F2EC;
+
+    .footer__top {
+        height: 60%;
+        width: 100%;
+        float: left; 
+        background: #F1F2EC;
+
+        .footer__links {
+            width: 55%;
+            float: left;
+
+            .footer__column {
+                display: inline-block;
+
+                .footer__service {
+                    list-style-type: none;
+                }
+            }
+        }
+
+        .footer__else {            
+            width: 45%;
+            float: right;
+
+            .footer__preferences {
+                width: 70%;
+                float: left;
+
+                .footer__img{
+                    display: inline-block;
+                    width: 7%;
+                }
+
+                .footer__text {
+                    display: inline-block;
+                }
+            }
+
+            /*
+            .footer__social {
+                width: 30%;
+                float: right;
+            }
+            */
+        }
+    }
+
+    .footer__bottom {
+        height: 40%;
+        width: 100%;
+        float: left;       
+        background: #F1F2EC;
+    }
+}
+
+
+//media
+/*
+.menu {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: red; // red on small devices
+
+    @media @tablet {
+        background: green; // green on medium devices
+    }
+
+    @media @desktop {
+        background: blue; // blue on large devices
+    }
+
+    &__item {
+        display: inline-block;
+        list-style-type: none;
+    }
+
+    &__link {
+        color: #FFF;
+    }
+
+    // Bottom Menu
+    &_bottom { // BEM modifier example
+        background: green;
+    }
+
+    &_bottom &__link {
+        color: #f00;
+    }
+}
+*/
+
+

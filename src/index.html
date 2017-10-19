@@ -5,6 +5,7 @@
 		<meta name="viewport" 
 			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta name="keywords" content="футболки, футболки для программистов, футболки для желающих приобрести дудки">
 		<title>7h3 5h0p | Футболка Alien Technology</title>
 		<link rel="stylesheet" href="css/main.css">
 	</head>
@@ -35,9 +36,9 @@
 					</ul>
 				</nav>
 
-				<form method="post" class="search">
-					<input type="search" class="input"></input>
-					<input type="" class="submit"></input>
+				<form class="search">
+					<input class="input"></input>
+					<input class="submit"></input>
 				</form>
 			</div>
 		</header>
@@ -57,7 +58,7 @@
 
 			<div class="product">
 				<div class="product__image-container">
-					<img src="/img/tshirts/tshirt_white.jpg" alt="Белая футболка Alien Technology" class="product__image">
+					<img src="/img/tshirts/tshirt_white.jpg" alt="Белая футболка Alien Technology" id="tShirt" class="product__image">
 				</div>
 				<div class="product__details">
 					<div class="product__name-container">
@@ -72,9 +73,9 @@
 						<p>Размер:</p>
 						<div class="size">
 							<ul class="size__list">
-								<li class="size__item size__item_s">S</li>
-								<li class="size__item size__item_m">M</li>
-								<li class="size__item size__item_l">L</li>
+								<li id="sBox" class="size__item size__item_s" onclick="chooseSize('S')">S</li>
+								<li id="mBox" class="size__item size__item_m" onclick="chooseSize('M')">M</li>
+								<li id="lBox" class="size__item size__item_l" onclick="chooseSize('L')">L</li>
 							</ul>
 						</div>
 					</div>
@@ -82,14 +83,14 @@
 						<p>Цвет:</p>
 						<div class="color">
 							<ul class="color__list">
-								<li class="color__item color__item_white"></li>
-								<li class="color__item color__item_yellow"></li>
-								<li class="color__item color__item_green"></li>
+								<li id="whiteBox" class="color__item color__item_white" onclick="showTShirt('white')"></li>
+								<li id="yellowBox" class="color__item color__item_yellow" onclick="showTShirt('yellow')"></li>
+								<li id="greenBox" class="color__item color__item_green" onclick="showTShirt('green')"></li>
 							</ul>
 						</div>
 					</div>
 					<div>
-						<button type="submit" title="Купить" class="button__buy">Купить</button>
+						<a href="#"><button type="submit" class="button__buy">Купить</button></a>
 					</div>
 					<div class="product__later-container">
 						<p><img src="/img/icons/heart_grey.svg" class="product__heart"><a href="#" class="product__later">Отложить на потом</a></p>

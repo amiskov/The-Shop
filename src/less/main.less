@@ -8,6 +8,7 @@
 @yellow-tshirt-color: #E2DA53;
 @green-tshirt-color: #A5AF96;
 @cart-send-color: #D2D2D2;
+@cart-send-hover-color: #939090;
 
 body {
     height: 100%;
@@ -20,6 +21,13 @@ body {
     height: 10%;
     width: 100%;
     
+    .before:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+
     .header-top {
         height: 60%;
         width: 86%;
@@ -29,17 +37,48 @@ body {
         padding-top: 15px;
         padding-bottom: 15px;
 
-        .header-top__logo {
+        @media @phone-strict {
+            padding-top: 7px;
+            padding-bottom: 7px;
+        }
+
+        .header-top__the-shop-logo {
+            display: inline-block;
+            width: 33%;
+            float: left;
+
+            .header-top__the-shop {
+                width: 30%;
+                float: left;
+                padding-top: 12px;
+
+                @media @phone-strict {
+                    width: 50%;
+                    padding-top: 6px;
+                }
+            }
+        }
+
+        .header-top__oggetto-logo {
             display: inline-block;
             width: 33%;
 
-            .header-top__the-shop-logo {
-                float: left;
-                width: 25%;
-            }
+            .header-top__oggetto {
+                width: 14%;
+                display: inline-block;
+                vertical-align: middle;
 
-            .header-top__oggetto-logo {
-                width: 10%;
+                @media @phone-strict {
+                    width: 20%;
+                }
+
+                @media @tablet-strict {
+                    width: 17%;
+                }
+
+                @media @large {
+                    width: 13%;
+                }
             }
         }
 
@@ -47,14 +86,30 @@ body {
             width: 33%;
             display: inline-block;
             line-height: 30px;
+            float: right;
 
             .header-top__number {
                 color: @oggetto-color;
                 margin: 0px; 
                 padding: 0px;
-                float: right;
                 font-weight: bold;
-                font-size: 1.2em;
+                font-size: 1.1em;
+                float: right;
+                line-height: 1.1em;
+                padding-top: 12px;
+
+                @media @phone-strict {
+                    font-size: 0.5em;
+                    padding-top: 6px;
+                }
+
+                @media @tablet-strict {
+                    font-size: 0.9em;
+                }
+
+                @media @large {
+                    font-size: 1.2em;
+                }
             }
         }
     }
@@ -74,12 +129,20 @@ body {
             display: inline-block;
             float: left;
 
+            @media @phone-strict {
+                font-size: 0.6em;
+            }
+
             .navigation__list {
                 padding: 0px;
 
                 .navigation__item {
                     display: inline-block;
                     padding-right: 13px;
+
+                    @media @phone-strict {
+                        padding-right: 7px;
+                    }
 
                     .navigation__link {
                         color: @oggetto-color;
@@ -93,6 +156,10 @@ body {
             float: right;
             position: relative;
             padding-top: 10px;
+
+            @media @phone-strict {
+                display: none;
+            }
 
             .search__input {
                 padding: 5px 37px 5px 15px;
@@ -158,6 +225,12 @@ body {
             width: 50%;
             padding-bottom: 110px;
 
+            @media @phone-strict {
+                float: none;
+                width: 100%;
+                padding-bottom: 20px;
+            }
+
             .product-frame__img {
                 height: 100%;
                 width: 100%;
@@ -169,7 +242,22 @@ body {
             height: 50%;
             width: 45%;
 
+            @media @phone-strict {
+                float: none;
+                width: 100%;
+                padding-bottom: 50px;
+            }
+
             .product-details__main {
+
+                @media @phone-strict {
+                    font-size: 0.8em;
+                    text-align: center;
+                }
+
+                @media @tablet-strict {
+                    font-size: 0.8em;
+                }
 
                 .product-details__name {
                     margin-top: 0px; 
@@ -178,10 +266,44 @@ body {
 
             .product-details__price {
 
+                @media @phone-strict {
+                    text-align: center;
+                }
+
                 .product-details__rubles {
                     font-size: 2em;
                     color: @oggetto-color;
                     font-weight: bold;
+
+                    @media @phone-strict {
+                        font-size: 1.5em;
+                    }
+
+                    @media @tablet-strict {
+                        font-size: 1.5em;
+                    }
+                }
+            }
+
+            .product-details__size {
+
+                @media @phone-strict {
+                    float: left;
+                }
+
+                @media @tablet-strict {
+                    float: left;
+                }
+            }
+
+            .product-details__color{
+
+                @media @phone-strict {
+                    float: right;
+                }
+
+                @media @tablet-strict {
+                    float: right;
                 }
             }
 
@@ -196,19 +318,51 @@ body {
                             border: 1px solid black;
                             margin-right: 5px;
                             font-size: 2em;
+
+                            @media @phone-strict {
+                                font-size: 1em;
+                            }
+
+                            @media @tablet-strict {
+                                font-size: 1.2em;
+                            }
                         } 
 
                         .product-size__item_s {
                             padding: 8px 17px 8px 17px;
+
+                            @media @phone-strict {
+                                padding: 8px 14px 8px 14px;
+                            }
+
+                            @media @tablet-strict {
+                                padding: 7px 13px 7px 13px;
+                            }
                         }
 
                         .product-size__item_m {
                             padding: 8px 14px 8px 14px;
-                            border: 2px solid @oggetto-color;  
+                            border: 2px solid @oggetto-color;
+
+                            @media @phone-strict {
+                                padding: 8px 12px 8px 12px;
+                            }
+
+                            @media @tablet-strict {
+                                padding: 7px 11px 7px 11px;
+                            }  
                         }
 
                         .product-size__item_l {
-                            padding: 8px 18px 8px 18px;                                
+                            padding: 8px 18px 8px 18px;
+
+                            @media @phone-strict {
+                                padding: 8px 14px 8px 14px;
+                            }  
+
+                            @media @tablet-strict {
+                                padding: 7px 13px 7px 13px;
+                            }                                
                         }                
                     }
                 }
@@ -224,7 +378,15 @@ body {
                             border: 1px solid black;
                             padding: 27px;
                             margin-right: 5px;
-                            font-size: 2em;
+
+                            @media @phone-strict {
+                                padding: 15px;
+                                margin-right: 3px;
+                            }
+
+                            @media @tablet-strict {
+                                padding: 17px;
+                            }
                         }                 
 
                         .product-color__item_white {
@@ -251,18 +413,46 @@ body {
                 margin-bottom: 10px;
                 cursor: pointer;
                 font-family: 'Roboto', sans-serif;
+
+                @media @phone-strict {
+                    padding: 15px 28px;
+                    font-size: 1em;
+                    clear: both;
+                    float: left;
+                }
+
+                @media @tablet-strict {
+                    padding: 15px 28px;
+                    font-size: 1em;
+                }
             }
 
             .product-details__cart {
 
+                @media @phone-strict {
+                    float: right;
+                }
+
                 .product-details__cart-img {
                     vertical-align: middle;
+
+                    @media @phone-strict {
+                        width: 7%;
+                    }
                 }
 
                 .product-details__cart-send {
                     color: @cart-send-color;
                     padding-left: 10px;
                     font-size: 0.9em;
+
+                    @media @phone-strict {
+                        font-size: 0.7em;
+                    }
+                }
+
+                .product-details__cart-send:hover {
+                    color: @cart-send-hover-color;
                 }
             }
         }
@@ -270,15 +460,26 @@ body {
 }
 
 .footer {
-    height: 30%;
     width: 100%;
     bottom: 0px;
     left: 0px;
     background: @main-grey-color;
     clear: both;
+    font-size: 0.7em;
+
+    @media @phone-strict {
+        font-size: 0.5em;
+    }
+
+    @media @tablet-strict {
+        font-size: 0.8em;
+    }
+
+    @media @large {
+        font-size: 0.9em;
+    }
 
     .footer-top {
-        height: 60%;
         width: 93%;
         background: @main-grey-color;
         padding-top: 30px;
@@ -290,6 +491,16 @@ body {
         .footer-links {
             width: 60%;
             float: left;
+
+            @media @phone-strict {
+                float: none;
+                width: 100%;
+            }
+
+            @media @tablet-strict {
+                float: none;
+                width: 100%;
+            }
 
             .footer-links__column {
                 display: inline-block;
@@ -307,8 +518,20 @@ body {
                     margin-right: 40px;
                     vertical-align: top;
 
+                    @media @phone-strict {
+                        margin-right: 10px;
+                    }
+
+                    @media @tablet-strict {
+                        margin-right: 65px;
+                    }
+
                     li {
                         padding-bottom: 10px;
+
+                        @media @phone-strict {
+                            padding-bottom: 5px;
+                        }
                     }
                 }
             }
@@ -318,18 +541,52 @@ body {
             width: 40%;
             float: right;
 
+            @media @phone-strict {
+                float: none;
+                width: 100%;
+            }
+
+            @media @tablet-strict {
+                float: none;
+                width: 100%;
+            }
+
             .footer-preferences {
                 width: 70%;
                 float: left;
                 padding-top: 8px;
                 padding-right: 0px;
 
+                @media @phone-strict {
+                    width: 60%;
+                }
+
+                @media @tablet-strict {
+                    width: 50%;
+                }
+
                 .footer-preferences__delivery {
                     margin-bottom: 23px;
+
+                    @media @phone-strict {
+                        margin-bottom: 10px;
+                    }
+
+                    @media @tablet-strict {
+                        margin-bottom: 10px;
+                    }
                 }
 
                 .footer-preferences__samples {
                     margin-bottom: 23px;
+
+                    @media @phone-strict {
+                        margin-bottom: 10px;
+                    }
+
+                    @media @tablet-strict {
+                        margin-bottom: 10px;
+                    }
                 }
 
                 .footer-preferences__text {
@@ -341,6 +598,14 @@ body {
                     display: inline-block;
                     vertical-align: middle;
                     width: 9%;
+
+                    @media @phone-strict {
+                        width: 12%;
+                    }
+
+                    @media @tablet-strict {
+                        width: 7%;
+                    }
                 }
 
                 .footer-preferences__samples-img {
@@ -348,6 +613,14 @@ body {
                     vertical-align: middle;
                     width: 5.5%;
                     padding-left: 15px;
+
+                    @media @phone-strict {
+                        width: 7%;
+                    }
+
+                    @media @tablet-strict {
+                        width: 4.3%;
+                    }
                 }
 
                 .footer-preferences__bonus-img {
@@ -355,30 +628,82 @@ body {
                     vertical-align: middle;
                     width: 5.5%;
                     padding-left: 15px;
+
+                    @media @phone-strict {
+                        width: 7%;
+                    }
+
+                    @media @tablet-strict {
+                        width: 4.4%;
+                    }
                 }   
             }
 
             .footer-social {
                 float: right;
                 width: 30%;
+                
+                @media @phone-strict {
+                    width: 40%;
+                    display: inline-block;
+                    margin-top: 20px;
+                }
+
+                @media @tablet-strict {
+                    width: 50%;
+                    display: inline-block;
+                }
 
                 .footer-social__facebook {
                     width: 8%;
                     display: block;
                     margin: 20px;
                     padding-left: 5px;
+
+                    @media @phone-strict {
+                        width: 6%;
+                        display: inline-block;
+                        margin: 8px;
+                    }
+
+                    @media @tablet-strict {
+                        width: 5%;
+                        display: inline-block;
+                    }
                 }
 
                 .footer-social__twitter{
                     width: 14%;
                     display: block;
                     margin: 20px;
+
+                    @media @phone-strict {
+                        width: 10%;
+                        display: inline-block;
+                        margin: 8px;
+                    }
+
+                    @media @tablet-strict {
+                        width: 9%;
+                        display: inline-block;
+                    }
                 }
 
                 .footer-social__instagram {
                     width: 14%;
                     display: block;
                     margin: 20px;
+
+                    @media @phone-strict {
+                        width: 10%;
+                        display: inline-block;
+                        margin: 8px;
+                    }
+
+                    @media @tablet-strict {
+                        width: 9%;
+                        display: inline-block;
+                    }
                 }
             }
         } 

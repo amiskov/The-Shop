@@ -33,7 +33,7 @@ body {
     height: 60%;
     width: 86%;
     text-align: center;
-    padding: 15px 7% 15px 7%;
+    padding: 15px 7%;
 
     @media @phone-strict {
         padding-top: 7px;
@@ -145,6 +145,11 @@ body {
 
             .navigation__link {
                 color: @oggetto-color;
+            }
+
+            .navigation__link_active {
+                color: black;
+                text-decoration: none;
             }
         }
     }        
@@ -382,39 +387,39 @@ body {
         } 
 
         .product-size__item_s {
-            padding: 8px 17px 8px 17px;
+            padding: 8px 17px;
 
             @media @phone-strict {
-                padding: 8px 14px 8px 14px;
+                padding: 8px 14px;
             }
 
             @media @tablet-strict {
-                padding: 7px 13px 7px 13px;
+                padding: 7px 13px;
             }
         }
 
         .product-size__item_m {
-            padding: 8px 14px 8px 14px;
+            padding: 8px 14px;
             border: 2px solid @oggetto-color;
 
             @media @phone-strict {
-                padding: 8px 12px 8px 12px;
+                padding: 8px 12px;
             }
 
             @media @tablet-strict {
-                padding: 7px 11px 7px 11px;
+                padding: 7px 11px;
             }  
         }
 
         .product-size__item_l {
-            padding: 8px 18px 8px 18px;
+            padding: 8px 18px;
 
             @media @phone-strict {
-                padding: 8px 14px 8px 14px;
+                padding: 8px 14px;
             }  
 
             @media @tablet-strict {
-                padding: 7px 13px 7px 13px;
+                padding: 7px 13px;
             }                                
         }                
     }

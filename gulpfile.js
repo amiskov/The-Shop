@@ -5,6 +5,8 @@ const autoprefixer = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
 const ejs = require('gulp-ejs');
 const gutil = require('gulp-util');
+const eslint = require('gulp-eslint');
+const stylelint = require('gulp-stylelint');
 
 // Автоперезагрузка при изменении файлов в папке `dist`:
 // Принцип: меняем файлы в `/src`, они обрабатываются и переносятся в `dist` и срабатывает автоперезагрузка.
@@ -46,6 +48,22 @@ gulp.task('html', () => {
             .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('eslint', () => {
+    return gulp.src(['src/js/**/*.*', '!node_modules/**'])
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
+});
+
+gulp.task('stylelint', () => {
+    return gulp.src(['src/less/**/*.less', '!src/less/normalize.less'])
+        .pipe(stylelint({
+            reporters: [
+                {formatter: 'string', console: true}
+            ]
+        }));
+});
+
 // Отслеживание изменений в файлах, нужно только при локальной разработке
 gulp.task('watch', () => {
     gulp.watch('src/less/**/*.less', ['styles']);
@@ -55,5 +73,6 @@ gulp.task('watch', () => {
     gulp.watch('src/js/**/*.*', ['js']);
 });
 
-gulp.task('default', ['styles', 'html', 'img', 'js', 'livereload', 'watch']);
-gulp.task('prod', ['styles', 'html', 'img', 'js']);
+gulp.task('default', ['stylelint', 'styles', 'html', 'img', 'eslint', 'js', 'livereload', 'watch']);
+gulp.task('prod', ['stylelint', 'styles', 'html', 'img', 'eslint', 'js']);
+gulp.task('lint', ['stylelint', 'eslint']);

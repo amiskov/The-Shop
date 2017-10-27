@@ -13,8 +13,8 @@
 body {
     height: 100%;
     width: 100%;
-    margin: 0px;
-    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    font-family: Roboto, sans-serif;
 }
 
 .header {
@@ -22,18 +22,18 @@ body {
     width: 100%;
 }
 
-.before:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-}
-
 .header-top {
     height: 60%;
     width: 86%;
     text-align: center;
     padding: 15px 7%;
+
+    &::before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
 
     @media @phone-strict {
         padding-top: 7px;
@@ -88,8 +88,8 @@ body {
 
         .header-top__number {
             color: @oggetto-color;
-            margin: 0px; 
-            padding: 0px;
+            margin: 0;
+            padding: 0;
             font-weight: bold;
             font-size: 1.1em;
             float: right;
@@ -97,12 +97,12 @@ body {
             padding-top: 12px;
 
             @media @phone-strict {
-                font-size: 0.5em;
+                font-size: .5em;
                 padding-top: 6px;
             }
 
             @media @tablet-strict {
-                font-size: 0.9em;
+                font-size: .9em;
             }
 
             @media @large {
@@ -117,11 +117,11 @@ body {
     background: @main-grey-color;
     height: 40%;
     width: 86%;
-    float: left; 
+    float: left;
     padding-left: 7%;
     padding-right: 7%;
     border-top: 1.5px solid @border-grey-color;
-    border-bottom: 1.5px solid @border-grey-color; 
+    border-bottom: 1.5px solid @border-grey-color;
 }
 
 .navigation {
@@ -129,30 +129,30 @@ body {
     float: left;
 
     @media @phone-strict {
-        font-size: 0.6em;
+        font-size: .6em;
     }
+}
 
-    .navigation__list {
-        padding: 0px;
+.navigation__list {
+    padding: 0;
 
-        .navigation__item {
-            display: inline-block;
-            padding-right: 13px;
+    .navigation__item {
+        display: inline-block;
+        padding-right: 13px;
 
-            @media @phone-strict {
-                padding-right: 7px;
-            }
-
-            .navigation__link {
-                color: @oggetto-color;
-            }
-
-            .navigation__link_active {
-                color: black;
-                text-decoration: none;
-            }
+        @media @phone-strict {
+            padding-right: 7px;
         }
-    }        
+
+        .navigation__link {
+            color: @oggetto-color;
+        }
+
+        .navigation__link_active {
+            color: black;
+            text-decoration: none;
+        }
+    }
 }
 
 .search {
@@ -177,9 +177,9 @@ body {
         width: 37px;
         height: 100%;
         cursor: pointer;
-        background: url("/img/icons/search.svg") 50% no-repeat;
-        opacity: 0.5;
-        border: 0px;
+        background: url('/img/icons/search.svg') 50% no-repeat;
+        opacity: .5;
+        border: 0;
     }
 }
 
@@ -196,23 +196,37 @@ body {
 
     .breadcrumbs {
         display: inline-block;
+    }
+}
 
-        .breadcrumbs__list {
-            padding: 0px;
-            margin-top: 28px;
+.breadcrumbs__list {
+    padding: 0;
+    margin-top: 28px;
 
-            .breadcrumbs__item {
+    .breadcrumbs__item {
+        display: inline-block;
+
+        .breadcrumbs__link {
+            color: @oggetto-color;
+        }
+
+        .breadcrumbs__link_slash {
+            &::after {
+                content: '/';
                 display: inline-block;
-
-                .breadcrumbs__link {
-                    color: @oggetto-color;
-                }
-            }
-
-            .breadcrumbs__separator {
-                display: inline-block;                    
+                padding-left: 4px;
+                color: black;
             }
         }
+
+        .breadcrumbs__link_active {
+            color: black;
+            text-decoration: none;
+        }
+    }
+
+    .breadcrumbs__separator {
+        display: inline-block;
     }
 }
 
@@ -255,16 +269,16 @@ body {
     .product-details__main {
 
         @media @phone-strict {
-            font-size: 0.8em;
+            font-size: .8em;
             text-align: center;
         }
 
         @media @tablet-strict {
-            font-size: 0.8em;
+            font-size: .8em;
         }
 
         .product-details__name {
-            margin-top: 0px; 
+            margin-top: 0;
         }
     }
 
@@ -314,13 +328,13 @@ body {
     .product-details__buy {
         background-color: @oggetto-color;
         color: white;
-        border: 0px;
+        border: 0;
         padding: 20px 45px;
         font-size: 1.7em;
         margin-top: 10px;
         margin-bottom: 10px;
         cursor: pointer;
-        font-family: 'Roboto', sans-serif;
+        font-family: Roboto, sans-serif;
 
         @media @phone-strict {
             padding: 15px 28px;
@@ -352,10 +366,10 @@ body {
         .product-details__cart-send {
             color: @cart-send-color;
             padding-left: 10px;
-            font-size: 0.9em;
+            font-size: .9em;
 
             @media @phone-strict {
-                font-size: 0.7em;
+                font-size: .7em;
             }
         }
 
@@ -366,11 +380,10 @@ body {
 }
 
 .product-size {
-
     .product-size__list {
         list-style-type: none;
-        padding: 0px;
-        
+        padding: 0;
+
         .product-size__item {
             display: inline-block;
             border: 1px solid black;
@@ -384,7 +397,7 @@ body {
             @media @tablet-strict {
                 font-size: 1.2em;
             }
-        } 
+        }
 
         .product-size__item_s {
             padding: 8px 17px;
@@ -408,7 +421,7 @@ body {
 
             @media @tablet-strict {
                 padding: 7px 11px;
-            }  
+            }
         }
 
         .product-size__item_l {
@@ -416,21 +429,20 @@ body {
 
             @media @phone-strict {
                 padding: 8px 14px;
-            }  
+            }
 
             @media @tablet-strict {
                 padding: 7px 13px;
-            }                                
-        }                
+            }
+        }
     }
 }
 
 .product-color {
-
     .product-color__list {
         list-style-type: none;
-        padding: 0px;
-        
+        padding: 0;
+
         .product-color__item {
             display: inline-block;
             border: 1px solid black;
@@ -445,7 +457,7 @@ body {
             @media @tablet-strict {
                 padding: 17px;
             }
-        }                 
+        }
 
         .product-color__item_white {
             border: 2px solid @oggetto-color;
@@ -463,22 +475,22 @@ body {
 
 .footer {
     width: 100%;
-    bottom: 0px;
-    left: 0px;
+    bottom: 0;
+    left: 0;
     background: @main-grey-color;
     clear: both;
-    font-size: 0.7em;
+    font-size: .7em;
 
     @media @phone-strict {
-        font-size: 0.5em;
+        font-size: .5em;
     }
 
     @media @tablet-strict {
-        font-size: 0.8em;
+        font-size: .8em;
     }
 
     @media @large {
-        font-size: 0.9em;
+        font-size: .9em;
     }
 }
 
@@ -505,37 +517,37 @@ body {
         float: none;
         width: 100%;
     }
+}
 
-    .footer-links__column {
+.footer-links__column {
+    display: inline-block;
+
+    .footer-links__reference {
+        text-decoration: none;
+        color: black;
+    }
+
+    .footer-links__subcolumn {
+        list-style-type: none;
         display: inline-block;
+        padding-left: 0;
+        margin-top: 0;
+        margin-right: 40px;
+        vertical-align: top;
 
-        .footer-links__reference {
-            text-decoration: none;
-            color: black;
+        @media @phone-strict {
+            margin-right: 10px;
         }
 
-        .footer-links__subcolumn {
-            list-style-type: none;
-            display: inline-block;
-            padding-left: 0px;
-            margin-top: 0px;
-            margin-right: 40px;
-            vertical-align: top;
+        @media @tablet-strict {
+            margin-right: 65px;
+        }
+
+        li {
+            padding-bottom: 10px;
 
             @media @phone-strict {
-                margin-right: 10px;
-            }
-
-            @media @tablet-strict {
-                margin-right: 65px;
-            }
-
-            li {
-                padding-bottom: 10px;
-
-                @media @phone-strict {
-                    padding-bottom: 5px;
-                }
+                padding-bottom: 5px;
             }
         }
     }
@@ -556,11 +568,11 @@ body {
     }
 }
 
-.footer-preferences {
+.footer-advantages {
     width: 70%;
     float: left;
     padding-top: 8px;
-    padding-right: 0px;
+    padding-right: 0;
 
     @media @phone-strict {
         width: 60%;
@@ -570,7 +582,7 @@ body {
         width: 50%;
     }
 
-    .footer-preferences__delivery {
+    .footer-advantages__delivery {
         margin-bottom: 23px;
 
         @media @phone-strict {
@@ -582,7 +594,7 @@ body {
         }
     }
 
-    .footer-preferences__samples {
+    .footer-advantages__samples {
         margin-bottom: 23px;
 
         @media @phone-strict {
@@ -594,12 +606,12 @@ body {
         }
     }
 
-    .footer-preferences__text {
+    .footer-advantages__text {
         display: inline-block;
         padding-left: 6px;
     }
 
-    .footer-preferences__delivery-img {
+    .footer-advantages__delivery-img {
         display: inline-block;
         vertical-align: middle;
         width: 9%;
@@ -613,7 +625,7 @@ body {
         }
     }
 
-    .footer-preferences__samples-img {
+    .footer-advantages__samples-img {
         display: inline-block;
         vertical-align: middle;
         width: 5.5%;
@@ -628,7 +640,7 @@ body {
         }
     }
 
-    .footer-preferences__bonus-img {
+    .footer-advantages__bonus-img {
         display: inline-block;
         vertical-align: middle;
         width: 5.5%;
@@ -641,13 +653,13 @@ body {
         @media @tablet-strict {
             width: 4.4%;
         }
-    }   
+    }
 }
 
 .footer-social {
     float: right;
     width: 30%;
-    
+
     @media @phone-strict {
         width: 40%;
         display: inline-block;
@@ -719,6 +731,6 @@ body {
     background: @main-grey-color;
     padding-bottom: 7%;
     padding-top: 25px;
-    border-top: 1.5px solid @border-grey-color; 
+    border-top: 1.5px solid @border-grey-color;
     margin: 0 auto;
 }

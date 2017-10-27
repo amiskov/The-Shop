@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<header class="header">
-			<div class="header-top before">
+			<div class="header-top">
 				<div class="header-top__the-shop-logo">
 					<a href="#"><img src="img/the_shop_logo.svg" class="header-top__the-shop"></a>
 				</div>
@@ -24,14 +24,15 @@
 				</div>
 			</div>
 
-			<div class="header-bottom"> 
+			<div class="header-bottom">
+				<% const navigation = {LISP: "navigation__link_active", OCaml: "", JavaScript: "", Python: "", PHP: ""}; %>
 				<nav class="navigation">
 					<ul class="navigation__list">
-						<li class="navigation__item">LISP</li>
-						<li class="navigation__item"><a href="#" class="navigation__link">OCaml</a></li>
-						<li class="navigation__item"><a href="#" class="navigation__link">JavaScript</a></li>
-						<li class="navigation__item"><a href="#" class="navigation__link">Python</a></li>
-						<li class="navigation__item"><a href="#" class="navigation__link">PHP</a></li>
+						<% for (var item in navigation) { %>
+						<li class="navigation__item">
+							<a href="#" class = "navigation__link <%= navigation[item] %>"><%= item %></a>
+						</li>
+						<% } %>
 					</ul>
 				</nav>
 
@@ -45,19 +46,29 @@
 		<section class="main">
 			<div class="breadcrumbs-container">
 				<nav class="breadcrumbs">
+					<% const breadcrumbs = {LISP: "", Одежда: "", Футболки: "breadcrumbs__link_active"}; %>
 					<ul class="breadcrumbs__list">
-						<li class="breadcrumbs__item"><a href="#" class="breadcrumbs__link">LISP</a></li>
-						<li class="breadcrumbs__separator">/</li>
-						<li class="breadcrumbs__item"><a href="#" class="breadcrumbs__link">Одежда</a></li>
-						<li class="breadcrumbs__separator">/</li>
-						<li class="breadcrumbs__item">Футболки</li>
+						<% for (var item in breadcrumbs) { %>
+						<li class="breadcrumbs__item">
+							<a href="#" class="breadcrumbs__link <%= breadcrumbs[item] %>"><%= item %></a></li>
+							<% if(breadcrumbs[item] === "") { %> 
+							<li class="breadcrumbs__separator">/</li>
+						<% } %>
+						<% } %>
 					</ul>
+					<!-- <% const breadcrumbs2 = {LISP: "breadcrumbs__link_slash", Одежда: "breadcrumbs__link_slash", Футболки: "breadcrumbs__link_active"}; %>
+					<ul class="breadcrumbs__list">
+						<% for (var item in breadcrumbs2) { %>
+						<li class="breadcrumbs__item">
+							<a href="#" class="breadcrumbs__link <%= breadcrumbs2[item] %>"><%= item %></a></li>
+						<% } %>
+					</ul> -->
 				</nav>
 			</div>
 
 			<div class="product">
 				<div class="product-frame">
-					<img src="img/tshirts/tshirt_white.jpg" alt="Белая футболка Alien Technology" id="tShirt" class="product-frame__img">
+					<img src="img/tshirts/tshirt_white.jpg" alt="Футболка Alien Technology" id="tShirt" class="product-frame__img">
 				</div>
 				<div class="product-details">
 					<div class="product-details__main">
@@ -71,21 +82,24 @@
 					<div class="product-details__size">
 						<p>Размер:</p>
 						<div class="product-size">
+							<% const productSize = ['s', 'm', 'l'] %>
 							<ul class="product-size__list">
-								<li id="sBox" class="product-size__item product-size__item_s" onclick="chooseSize('S')">S</li>
-								<li id="mBox" class="product-size__item product-size__item_m" onclick="chooseSize('M')">M</li>
-								<li id="lBox" class="product-size__item product-size__item_l" onclick="chooseSize('L')">L</li>
+								<% productSize.forEach(function(item) { %>
+								<li id="<%= item %>Box" class="product-size__item product-size__item_<%= item %>" onclick="chooseSizeIgnored('<%= item.charAt(0).toUpperCase() %>')"><%= item.charAt(0).toUpperCase() %></li>
+								<% }); %>
 							</ul>
 						</div>
 					</div>
 					<div class="product-details__color">
 						<p>Цвет:</p>
 						<div class="product-color">
+							<% const productColor = ['white', 'yellow', 'green'] %>
 							<ul class="product-color__list">
-								<li id="whiteBox" class="product-color__item product-color__item_white" onclick="showTShirt('white')"></li>
-								<li id="yellowBox" class="product-color__item product-color__item_yellow" onclick="showTShirt('yellow')"></li>
-								<li id="greenBox" class="product-color__item product-color__item_green" onclick="showTShirt('green')"></li>
+								<% productColor.forEach(function(item) { %>
+								<li id="<%= item %>Box" class="product-color__item product-color__item_<%= item %>" onclick="showTShirtIgnored('<%= item %>')"></li>
+								<% }); %>
 							</ul>
+
 						</div>
 					</div>
 					<div>
@@ -102,55 +116,62 @@
 			<div class = "footer-top">
 				<div class="footer-links">
 					<div class="footer-links__column">
-							<h4><a href="#" class="footer-links__reference">Сервис и поддержка</a></h4>
-							<ul class="footer-links__subcolumn">
-								<li><a href="#" class="footer-links__reference">Как сделать заказ</a></li>
-								<li><a href="#" class="footer-links__reference">Возврат товара</a></li>
-								<li><a href="#" class="footer-links__reference">Публичная оферта</a></li>
-								<li><a href="#" class="footer-links__reference">Доставка</a></li>
-							</ul>
-							<ul class="footer-links__subcolumn">
-								<li><a href="#" class="footer-links__reference">Способы оплаты</a></li>
-								<li><a href="#" class="footer-links__reference">Правила продажи</a></li>
-								<li><a href="#" class="footer-links__reference">Возврат денежных средств</a></li>
-								<li><a href="#" class="footer-links__reference">Вопросы и ответы</a></li>
-							</ul>
+						<h4><a href="#" class="footer-links__reference">Сервис и поддержка</a></h4>
+						<% const footerLinks1 = ['Как сделать заказ', 'Возврат товара', 'Публичная оферта', 'Доставка'] %>
+						<ul class="footer-links__subcolumn">
+							<% footerLinks1.forEach(function(item) { %>
+							<li>
+								<a href="#" class="footer-links__reference"><%= item %></a>
+							</li>
+							<% }); %>
+						</ul>
+
+						<% const footerLinks2 = ['Способы оплаты', 'Правила продажи', 'Возврат денежных средств', 'Вопросы и ответы'] %>
+						<ul class="footer-links__subcolumn">
+							<% footerLinks2.forEach(function(item) { %>
+							<li>
+								<a href="#" class="footer-links__reference"><%= item %></a>
+							</li>
+							<% }); %>
+						</ul>
 					</div>
 					<div class="footer-links__column">
-							<h4><a href="#" class="footer-links__reference">О компании</a></h4>
-							<ul class="footer-links__subcolumn">
-								<li><a href="#" class="footer-links__reference">О нас</a></li>
-								<li><a href="#" class="footer-links__reference">Контакты</a></li>
-								<li><a href="#" class="footer-links__reference">Вакансии</a></li>
-								<li><a href="#" class="footer-links__reference">Партнерам</a></li>
-							</ul>
-							<ul class="footer-links__subcolumn">
-								<li><a href="#" class="footer-links__reference">Сертификаты</a></li>
-								<li><a href="#" class="footer-links__reference">Преимущества</a></li>
-								<li><a href="#" class="footer-links__reference">Наши скидки</a></li>
-							</ul>
+						<h4><a href="#" class="footer-links__reference">О компании</a></h4>
+						<% const footerLinks3 = ['О нас', 'Контакты', 'Вакансии', 'Партнерам'] %>
+						<ul class="footer-links__subcolumn">
+							<% footerLinks3.forEach(function(item) { %>
+							<li>
+								<a href="#" class="footer-links__reference"><%= item %></a>
+							</li>
+							<% }); %>
+						</ul>
+
+						<% const footerLinks4 = ['Сертификаты', 'Преимущества', 'Наши скидки'] %>
+						<ul class="footer-links__subcolumn">
+							<% footerLinks4.forEach(function(item) { %>
+							<li>
+								<a href="#" class="footer-links__reference"><%= item %></a>
+							</li>
+							<% }); %>
+						</ul>
 					</div>
 				</div>
 				<div class="footer-else">
-					<div class="footer-preferences">
-						<p class="footer-preferences__delivery">
-							<img src="img/icons/delivery.svg" class="footer-preferences__delivery-img">
-							<span class="footer-preferences__text">бесплатная доставка от 4000 &#8381;</span>
+					<% const footerAdvantages = {delivery: "бесплатная доставка от 4000 ₽", samples: "пробники в подарок при каждой покупке", bonus: "акции и подарки за покупку"}; %>
+					<div class="footer-advantages">
+						<% for (var item in footerAdvantages) { %>
+						<p class="footer-advantages__<%= item %>">
+							<img src="img/icons/<%= item %>.svg" class="footer-advantages__<%= item %>-img">
+							<span class="footer-advantages__text"><%= footerAdvantages[item] %></span>
 						</p>
-						<p class="footer-preferences__samples">
-							<img src="img/icons/heart.svg" class="footer-preferences__samples-img">
-							<span class="footer-preferences__text">пробники в подарок при каждой покупке</span>
-						</p>
-						<p class="footer-preferences__bonus">
-							<img src="img/icons/price.svg" class="footer-preferences__bonus-img">
-							<span class="footer-preferences__text">акции и подарки за покупку</span>
-						</p>
+						<% } %>
 					</div>
+					<% const footerSocial = ['facebook', 'twitter', 'instagram'] %>
 					<div class="footer-social">
-						<a href="#"><img src="img/icons/facebook.svg" class="footer-social__facebook"></a>
-						<a href="#"><img src="img/icons/twitter.svg" class="footer-social__twitter"></a>
-						<a href="#"><img src="img/icons/instagram.svg" class="footer-social__instagram"></a> 
-					</div>
+						<% footerSocial.forEach(function(item) { %>
+						<a href="#"><img src="img/icons/<%= item %>.svg" class="footer-social__<%= item %>"></a>
+						<% }); %>
+					</div>		
 				</div>
 			</div>
 			<div class = "footer-bottom">

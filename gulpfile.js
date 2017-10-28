@@ -7,13 +7,14 @@ const ejs = require('gulp-ejs');
 const gutil = require('gulp-util');
 const eslint = require('gulp-eslint');
 const stylelint = require('gulp-stylelint');
+const sourcemaps = require('gulp-sourcemaps');
+const imagemin = require('gulp-imagemin');
 
 // Автоперезагрузка при изменении файлов в папке `dist`:
 // Принцип: меняем файлы в `/src`, они обрабатываются и переносятся в `dist` и срабатывает автоперезагрузка.
 // Это таск нужен только при локальной разработке.
 gulp.task('livereload', () => {
     browserSync.create();
-
     browserSync.init({
         server: {
             baseDir: 'dist'
@@ -26,13 +27,16 @@ gulp.task('livereload', () => {
 
 gulp.task('styles', () => {
     gulp.src('src/less/main.less')
+        .pipe(sourcemaps.init())
         .pipe(less())
         .pipe(autoprefixer())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('img', () => {
     gulp.src('src/img/**/*.*')
+        .pipe(imagemin())
         .pipe(gulp.dest('./dist/img'));
 });
 

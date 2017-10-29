@@ -36,6 +36,11 @@ gulp.task('styles', () => {
 
 gulp.task('img', () => {
     gulp.src('src/img/**/*.*')
+        .pipe(gulp.dest('./dist/img'));
+});
+
+gulp.task('img-prod', () => {
+    gulp.src('src/img/**/*.*')
         .pipe(imagemin())
         .pipe(gulp.dest('./dist/img'));
 });
@@ -78,5 +83,5 @@ gulp.task('watch', () => {
 });
 
 gulp.task('default', ['stylelint', 'styles', 'html', 'img', 'eslint', 'js', 'livereload', 'watch']);
-gulp.task('prod', ['stylelint', 'styles', 'html', 'img', 'eslint', 'js']);
+gulp.task('prod', ['stylelint', 'styles', 'html', 'img-prod', 'eslint', 'js']);
 gulp.task('lint', ['stylelint', 'eslint']);

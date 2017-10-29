@@ -28,7 +28,7 @@
 				<% const navigation = {LISP: "navigation__link_active", OCaml: "", JavaScript: "", Python: "", PHP: ""}; %>
 				<nav class="navigation">
 					<ul class="navigation__list">
-						<% for (var item in navigation) { %>
+						<% for (let item in navigation) { %>
 						<li class="navigation__item">
 							<a href="#" class = "navigation__link <%= navigation[item] %>"><%= item %></a>
 						</li>
@@ -36,9 +36,9 @@
 					</ul>
 				</nav>
 
-				<form class="search">
-					<input class="search__input"></input>
-					<input class="search__submit"></input>
+				<form id="search" class="search">
+					<input class="js-search__input"></input>
+					<input class="js-search__submit"></input>
 				</form>
 			</div>
 		</header>
@@ -48,7 +48,7 @@
 				<nav class="breadcrumbs">
 					<% const breadcrumbs = {LISP: "", Одежда: "", Футболки: "breadcrumbs__link_active"}; %>
 					<ul class="breadcrumbs__list">
-						<% for (var item in breadcrumbs) { %>
+						<% for (let item in breadcrumbs) { %>
 						<li class="breadcrumbs__item">
 							<a href="#" class="breadcrumbs__link <%= breadcrumbs[item] %>"><%= item %></a></li>
 							<% if(breadcrumbs[item] === "") { %> 
@@ -58,7 +58,7 @@
 					</ul>
 					<!-- <% const breadcrumbs2 = {LISP: "breadcrumbs__link_slash", Одежда: "breadcrumbs__link_slash", Футболки: "breadcrumbs__link_active"}; %>
 					<ul class="breadcrumbs__list">
-						<% for (var item in breadcrumbs2) { %>
+						<% for (let item in breadcrumbs2) { %>
 						<li class="breadcrumbs__item">
 							<a href="#" class="breadcrumbs__link <%= breadcrumbs2[item] %>"><%= item %></a></li>
 						<% } %>
@@ -76,18 +76,18 @@
 						<p class="product-details__composition">Состав: 100% хлопок, динамическая типизация, польская нотация. Производство: Россия.</p>
 					</div>
 
-					<form action="#" class="product-form">
+					<form id="order" class="js-product-form">
 						<div class="product-details__price">
-							<span class="product-details__rubles">1500 &#8381;</span>
+							<span data-type="price" data-value="1500" class="js-product-details__rubles">1500 &#8381;</span>
 							</span>
 						</div>
 						<div class="product-details__size">
 							<p>Размер:</p>
 							<div class="product-size">
-								<% const productSize = {s: "product-details_inactive", m: "product-details_active", l: "product-details_inactive"}; %>
+								<% const productSize = {s: "js-product-details_inactive", m: "js-product-details_active", l: "js-product-details_inactive"}; %>
 								<ul class="product-size__list">
-									<% for (var item in productSize) { %>
-									<li data-type="size" data-value="<%= item %>" id="<%= item %>Box" class="product-size__item product-size__item_<%= item %> <%= productSize[item] %> js-product-details"><%= item.charAt(0).toUpperCase() %></li>
+									<% for (let item in productSize) { %>
+									<li data-type="size" data-value="<%= item %>" id="<%= item %>Box" class="js-product-size__item product-size__item_<%= item %> <%= productSize[item] %> js-product-details"><%= item.charAt(0).toUpperCase() %></li>
 									<% } %>
 								</ul>
 							</div>
@@ -95,17 +95,17 @@
 						<div class="product-details__color">
 							<p>Цвет:</p>
 							<div class="product-color">
-								<% const productColor = {white: "product-details_active", yellow: "product-details_inactive", green: "product-details_inactive"}; %>
+								<% const productColor = {white: "js-product-details_active", yellow: "js-product-details_inactive", green: "js-product-details_inactive"}; %>
 								<ul class="product-color__list">
-									<% for (var item in productColor) { %>
-									<li data-type="color" data-value="<%= item %>"id="<%= item %>Box" class="product-color__item product-color__item_<%= item %> <%= productColor[item] %> js-product-details"></li>
+									<% for (let item in productColor) { %>
+									<li data-type="color" data-value="<%= item %>"id="<%= item %>Box" class="js-product-color__item product-color__item_<%= item %> <%= productColor[item] %> js-product-details"></li>
 									<% } %>
 								</ul>
 
 							</div>
 						</div>
 						<div>
-							<a href="#"><button type="submit" class="product-details__buy">Купить</button></a>
+							<a href="#"><button class="js-product-details__buy">Купить</button></a>
 						</div>
 					</form>
 
@@ -163,7 +163,7 @@
 				<div class="footer-else">
 					<% const footerAdvantages = {delivery: "бесплатная доставка от 4000 ₽", samples: "пробники в подарок при каждой покупке", bonus: "акции и подарки за покупку"}; %>
 					<div class="footer-advantages">
-						<% for (var item in footerAdvantages) { %>
+						<% for (let item in footerAdvantages) { %>
 						<p class="footer-advantages__<%= item %>">
 							<img src="img/icons/<%= item %>.svg" class="footer-advantages__<%= item %>-img">
 							<span class="footer-advantages__text"><%= footerAdvantages[item] %></span>

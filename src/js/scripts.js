@@ -7,7 +7,7 @@ document.querySelector('.js-product-form').addEventListener('click', event => {
 
     const color = target.getAttribute('data-value');
     if (target.classList.contains('js-product-color__item')) {
-        document.getElementById('tShirt').src = '../img/tshirts/tshirt_' + color + '.jpg';
+        document.getElementById('tShirt').src = 'img/tshirts/tshirt_' + color + '.jpg';
     }
 
     const colorElements = document.getElementsByClassName('js-product-color__item');

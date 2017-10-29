@@ -48,7 +48,7 @@ body {
         .header-top__the-shop {
             width: 30%;
             float: left;
-            padding-top: 12px;
+            padding-top: 15px;
 
             @media @phone-strict {
                 width: 50%;
@@ -94,7 +94,7 @@ body {
             font-size: 1.1em;
             float: right;
             line-height: 1.1em;
-            padding-top: 12px;
+            padding-top: 18px;
 
             @media @phone-strict {
                 font-size: .5em;
@@ -210,14 +210,14 @@ body {
             color: @oggetto-color;
         }
 
-        .breadcrumbs__link_slash {
-            &::after {
-                content: '/';
-                display: inline-block;
-                padding-left: 4px;
-                color: black;
-            }
-        }
+        // .breadcrumbs__link_slash {
+        //     &::after {
+        //         content: '/';
+        //         display: inline-block;
+        //         padding-left: 4px;
+        //         color: black;
+        //     }
+        // }
 
         .breadcrumbs__link_active {
             color: black;
@@ -259,6 +259,14 @@ body {
     float: right;
     height: 50%;
     width: 45%;
+
+    &_active {
+        border: 2px solid @oggetto-color;
+    }
+
+    &_inactive {
+        border: 1px solid black;
+    }
 
     @media @phone-strict {
         float: none;
@@ -386,7 +394,6 @@ body {
 
         .product-size__item {
             display: inline-block;
-            border: 1px solid black;
             margin-right: 5px;
             font-size: 2em;
 
@@ -413,7 +420,6 @@ body {
 
         .product-size__item_m {
             padding: 8px 14px;
-            border: 2px solid @oggetto-color;
 
             @media @phone-strict {
                 padding: 8px 12px;
@@ -445,7 +451,6 @@ body {
 
         .product-color__item {
             display: inline-block;
-            border: 1px solid black;
             padding: 27px;
             margin-right: 5px;
 
@@ -460,7 +465,7 @@ body {
         }
 
         .product-color__item_white {
-            border: 2px solid @oggetto-color;
+            background-color: white;
         }
 
         .product-color__item_yellow {
@@ -541,6 +546,10 @@ body {
 
         @media @tablet-strict {
             margin-right: 65px;
+        }
+
+        @media @large {
+            margin-right: 70px;
         }
 
         li {

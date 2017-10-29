@@ -75,36 +75,40 @@
 						<h1 class="product-details__name">Футболка Alien Technology</h1>
 						<p class="product-details__composition">Состав: 100% хлопок, динамическая типизация, польская нотация. Производство: Россия.</p>
 					</div>
-					<div class="product-details__price">
-						<span class="product-details__rubles">1500 &#8381;</span>
-						</span>
-					</div>
-					<div class="product-details__size">
-						<p>Размер:</p>
-						<div class="product-size">
-							<% const productSize = ['s', 'm', 'l'] %>
-							<ul class="product-size__list">
-								<% productSize.forEach(function(item) { %>
-								<li id="<%= item %>Box" class="product-size__item product-size__item_<%= item %>" onclick="chooseSizeIgnored('<%= item.charAt(0).toUpperCase() %>')"><%= item.charAt(0).toUpperCase() %></li>
-								<% }); %>
-							</ul>
-						</div>
-					</div>
-					<div class="product-details__color">
-						<p>Цвет:</p>
-						<div class="product-color">
-							<% const productColor = ['white', 'yellow', 'green'] %>
-							<ul class="product-color__list">
-								<% productColor.forEach(function(item) { %>
-								<li id="<%= item %>Box" class="product-color__item product-color__item_<%= item %>" onclick="showTShirtIgnored('<%= item %>')"></li>
-								<% }); %>
-							</ul>
 
+					<form action="#" class="product-form">
+						<div class="product-details__price">
+							<span class="product-details__rubles">1500 &#8381;</span>
+							</span>
 						</div>
-					</div>
-					<div>
-						<a href="#"><button type="submit" class="product-details__buy">Купить</button></a>
-					</div>
+						<div class="product-details__size">
+							<p>Размер:</p>
+							<div class="product-size">
+								<% const productSize = {s: "product-details_inactive", m: "product-details_active", l: "product-details_inactive"}; %>
+								<ul class="product-size__list">
+									<% for (var item in productSize) { %>
+									<li data-type="size" data-value="<%= item %>" id="<%= item %>Box" class="product-size__item product-size__item_<%= item %> <%= productSize[item] %> js-product-details"><%= item.charAt(0).toUpperCase() %></li>
+									<% } %>
+								</ul>
+							</div>
+						</div>
+						<div class="product-details__color">
+							<p>Цвет:</p>
+							<div class="product-color">
+								<% const productColor = {white: "product-details_active", yellow: "product-details_inactive", green: "product-details_inactive"}; %>
+								<ul class="product-color__list">
+									<% for (var item in productColor) { %>
+									<li data-type="color" data-value="<%= item %>"id="<%= item %>Box" class="product-color__item product-color__item_<%= item %> <%= productColor[item] %> js-product-details"></li>
+									<% } %>
+								</ul>
+
+							</div>
+						</div>
+						<div>
+							<a href="#"><button type="submit" class="product-details__buy">Купить</button></a>
+						</div>
+					</form>
+
 					<div class="product-details__cart">
 						<p><img src="img/icons/heart_grey.svg" class="product-details__cart-img"><a href="#" class="product-details__cart-send">Отложить на потом</a></p>
 					</div>
